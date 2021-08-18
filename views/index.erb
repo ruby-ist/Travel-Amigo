@@ -1,0 +1,138 @@
+<div class="welcome">
+	<h1 class="slogan" id="welcome">Find the best places<br> to be</h1>
+	<form action="" method="post">
+		<input class="box" list="cities" name="location" placeholder="Choose a city" spellcheck="false" autocomplete="off">
+		<datalist id="cities">
+			<% @cities.each do |i| %>
+				<option value=<%= i %>>
+			<% end %>
+		</datalist>
+		<br>
+		<input class="box" list="categories" name="category" placeholder="Choose a category" spellcheck="false" autocomplete="off">
+		<datalist id="categories">
+			<% @categories.each do |i| %>
+				<option value=<%= i %>>
+			<% end %>
+		</datalist>
+		<br>
+		<input class="search-btn" type="submit" value="Search">
+	</form>
+</div>
+
+
+<div class = "featured">
+	<h1 class="main-title">Featured Categories</h1>
+	<p class="sub-title">Explore some of the best tips from around the city from our partners and friends.</p>
+	<div class="container">
+		<div class="row">
+			<div class="col-8">
+				<div class="row">
+					<div class="col">
+						<a href="/listing?category=restaurant"><div class="restaurunt cell">
+							<div class='cover'></div>
+							<div class="cell-text">Restaurant</div>
+						</div></a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<a href="/listing?category=shopping"><div class="mall cell">
+							<div class='cover'></div>
+							<div class="cell-text">Shopping</div>
+						</div></a>
+					</div>
+				</div>
+			</div>
+			<div class="col-4">
+				<a href="/listing?category=entertainment"><div class="entertainment cell">
+					<div class='cover'></div>
+					<div class="cell-text">Entertainment</div>
+				</div></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-5">
+				<a href="/listing?category=hotel"><div class="hotel cell">
+					<div class='cover'></div>
+					<div class="cell-text">Hotel</div>
+				</div></a>
+			</div>
+			<div class="col-7">
+				<a href="/listing?category=sight"><div class="sight cell">
+					<div class='cover'></div>
+					<div class="cell-text">Sight Seeing</div>
+				</div></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="popular" id="popular">
+	<h1 class="main-title">Popular Places</h1>
+	<p class="sub-title">Highest rated places based on the reviews</p>
+	<div class="owl-carousel owl-theme" id="popular-slider">
+		<% @places.each do |i| %>
+		<div class="items">
+			<div class="img" style="background-image: url(<%= "images/" +  i.images[0] %>)">
+				<div class="item-gradient"></div>
+				<a href=<%= "/" + i._id %>><div class="item-name"><%= i.name %></div></a>
+			</div>
+			<a href=<%= "/" + i._id %>><div class="item-content">
+				<i class="fas fa-star"></i><span class="item-rating"><%= i.reviewAverage %></span>
+				<p class="item-location"><%= i.location %></p>
+			</div></a>
+		</div>
+		<% end %>
+	</div>
+	<div class="prev-btn"><i class="fad fa-arrow-left"></i></div>
+	<div class="next-btn"><i class="fad fa-arrow-right"></i></div>
+</div>
+
+<div class="counts">
+	<div class="container">
+		<div class="row">
+			<div class="col-4">
+				<i class="far fa-user count-icons"></i>
+				<p class="count-text">1k Users</p>
+			</div>
+			<div class="col-4">
+				<i class="fad fa-map-marked-alt count-icons"></i>
+				<p class="count-text">27 Places</p>
+			</div>
+			<div class="col-4">
+				<i class="fal fa-list count-icons"></i>
+				<p class="count-text">5 Categories</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="how-to" id="about">
+	<h1>How it works</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-4">
+				<div class="how-to-card">
+					<div class="card-icon"><i class="fas fa-city"></i></div>
+					<p class="card-text"><a href='/#welcome'>Choose a City</a></p>
+					<p class="card-sub-text">Search and Find what you are looking for in the city you like to visit.</p>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="how-to-card">
+					<div class="card-icon"><i class="fab fa-canadian-maple-leaf"></i></div>
+					<p class="card-text"><a href="/#welcome">Choose a Category</a></p>
+					<p class="card-sub-text">Select the category where you want to spend your time in.</p>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="how-to-card">
+					<div class="card-icon"><i class="fad fa-route"></i></div>
+					<p class="card-text"><a href="/#welcome">Enjoy the visit</a></p>
+					<p class="card-sub-text">Read the reviews. Visit the place. Rate and review your experience.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

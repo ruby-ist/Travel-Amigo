@@ -1,0 +1,56 @@
+<div class="container-fluid listing">
+    <div class="row">
+        <div class="col-6 lists">
+            <form action="/listing" method="post">
+              <input class="box-v2" list="cities" name="location" placeholder="Choose a city" spellcheck="false" autocomplete="off">
+              <datalist id="cities">
+                  <% @cities.each do |i| %>
+                      <option value=<%= i %>>
+                  <% end %>
+              </datalist>
+              <input class="box-v2" list="categories" name="category" placeholder="Choose a category" spellcheck="false" autocomplete="off">
+              <datalist id="categories">
+                  <% @categories.each do |i| %>
+                      <option value=<%= i %>>
+                  <% end %>
+              </datalist>
+              <input class="search-btn-v2" type="submit" value="Search">
+            </form>
+    
+    
+            <div class="row">
+                <% if @places == [] %>
+                    <div class="col not-found">
+                        :-( Sorry, we can't find any places under given filters, it maybe uploaded in future :-)
+                    </div>
+                <% else %>
+                    <% @places.each do |i| %>
+                        <div class="col-6">
+                            <div class="items">
+                                <div class="img" style="background-image: url(<%= "images/" +  i.images[0] %>)">
+                                    <div class="item-gradient"></div>
+                                    <a href=<%= "/" + i._id %>><div class="item-name"><%= i.name %></div></a>
+                                </div>
+                                <a href=<%= "/" + i._id %>><div class="item-content">
+                                    <i class="fas fa-star"></i><span class="item-rating"><%= i.reviewAverage %></span>
+                                    <p class="item-location"><%= i.location %></p>
+                                </div></a>
+                                <p class="hidden-map"><%= i.mapImage %></p>
+                                <p class="hidden-url"><%= i.mapURL %></p>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+
+        <div class="col-6 map">
+          <div class="map-image">
+              <div class="open-map">
+                  <a id="map-url" href="/listing">Open in Google maps <i class="fas fa-external-link-alt"></i></a>
+              </div>
+              <p class="map-notify">(Move the mouse over the card to view the map)</p>
+          </div>
+        </div>
+    </div>
+</div>

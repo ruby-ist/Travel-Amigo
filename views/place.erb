@@ -1,0 +1,77 @@
+<div class="owl-carousel owl-theme place-imgs" id="image-slider">
+	<% @place.images.each do |i| %>
+		<div class="place-image" style="background-image: url(<%= "images/" +  i %>)"></div>
+	<% end %>
+</div>
+
+<div class="title-bar">
+    <h1 class="place-title">
+        <%= @place.name %>
+	</h1>
+	<p class="location"><%= @place.location %></p>
+	<div class="rating">
+		<i class="fas fa-star place-star"></i><span class="place-average"> <%= @place.reviewAverage %> / 10 </span>
+	</div>
+	
+	<div class="map-location">
+		<div class="place-in-map" style="background-image: url(<%= "images/" + @place.mapImage %>)"></div>
+		<a href=<%= @place.mapURL %>><p class="place-link"><i class="fas fa-external-link-alt"></i> Open in Google maps</p></a>
+	</div>
+</div>
+
+<div class="place-about">
+	<%= @place.about %>
+</div>
+
+<div class="container-fluid place-reviews">
+	<div class="row">
+		<div class="col-7 left-section">
+			<a href="/userlist"><button class="add-to-list">+ Add to list </button></a>
+			
+			<h2 class="review-title">Reviews</h2>
+			<div class="reviews">
+				<% @place.reviews.each do |i| %>
+					<div class="review">
+						<i class="fas fa-user-circle user-icon"></i><span class="author"><%= i.author %></span>
+						<p class="content"><%= i.content %></p>
+					</div>
+				<% end %>
+			</div>
+			
+		</div>
+		
+		<div class="col-5 right-section">
+			<div class="tags">
+				<h2 class="tag-title">Tags:</h2>
+				<ul>
+					<% @place.tags.each do |i| %>
+						<li class="tag"><div class="tag-text"><%= i %></div></li>
+					<% end %>
+				</ul>
+			</div>
+			
+			<div class="add-review">
+				<form action="/check" method="post">
+					<span>Write a review:</span>
+					<input type="hidden" value=<%= @place._id %> name="id">
+					<input class="author-name" name="author" type="text" placeholder="Your Name" spellcheck="false" autocomplete="off" required>
+					<textarea name="content" spellcheck="false" autocomplete="off" required></textarea><br>
+					<span>Your rating:</span>
+					<div class="star-rating"><i class="fas fa-star rating-star"></i>
+					<select name="rating" id="stars" required>
+						<% 10.downto(1).each do |i| %>
+							<option value=<%= i %>><%= i %></option>
+						<% end %>
+					</select>
+					</div>
+					<input class="review-btn" type="submit" value="submit">
+				</form>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+
+

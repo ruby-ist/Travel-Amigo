@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	
+	<title>Travel Amigo</title>
+	<link href="https://fonts.googleapis.com/css2?family=Handlee&family=Kalam:wght@700&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=PT+Sans&family=Oswald:wght@400;700&family=Lobster+Two:ital,wght@0,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+	
+	<link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+	
+	<link rel="stylesheet" href="style.css?param=15">
+</head>
+<body>
+	<nav>
+		<a href="/"><h1 class="title">Travel Amigo</h1></a>
+		<ol class="navigation">
+			<a href="/#welcome"><li>Home</li></a>
+			<a href="/#popular"><li>Popular</li></a>
+			<a href="/#about"><li>About</li></a>
+			<a href="/#footer"><li>Contact</li></a>
+			<a href="/signin"><li><button class="account-btn"><i class="far fa-user"></i> Sign In</button></li></a>
+		</ol>
+	</nav>
+
+	<%= yield %>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-3">
+					<p class="footer-title">Travel Amigo</p>
+					<p class="footer-about">Without a doubt, Travel Amigo is the best way to find & discover the greatest places in the city.</p>
+				</div>
+				<div class="col-3">
+					<p class="footer-sub-title">Location</p>
+					<div class="footer-about">
+						<p>Stark Mansion</p>
+						<p>10880 Malibu Point, 90265</p>
+						<p>Malibu, California</p>
+						<p>United States</p>
+					</div>
+				</div>
+				<div class="col-3">
+					<p class="footer-sub-title">E-mail Address</p>
+					<div class="footer-about">
+						<p>info@travelamigo.com</p>
+						<p>sriram.cs20@bitsathy.ac.in</p>
+					</div>
+				</div>
+				<div class="col-3">
+					<p class="footer-sub-title">Contact Us</p>
+					<div class="footer-about">
+						<p>+04562-666-420</p>
+						<p>+91-8344000240</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<p class="copyrights" id="footer">copyrights Travel-Amigo @ 2021 Sriram V</p>
+	</footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+	<script src="https://kit.fontawesome.com/dcb89a2306.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="index.js?param=13"></script>
+</body>
+</html>
+
+
+
