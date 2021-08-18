@@ -1,8 +1,18 @@
 development:
   clients:
     default:
-      uri: mongodb+srv://sriram:Sr1rAm2520@mydatabase.2tmq0.mongodb.net/tourist-sites?retryWrites=true&w=majority
+      uri: <%= ENV['MONGODB_URI'] %>
       options:
         server_selection_timeout: 5
+  options:
+    raise_not_found_error: false
+
+production:
+  clients:
+    default:
+      uri: <%= ENV['MONGODB_URI'] %>
+      options:
+        server_selection_timeout: 5
+
   options:
     raise_not_found_error: false
